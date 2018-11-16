@@ -22,7 +22,7 @@
   width: 90vw;
 }
 
-.grid2x2 {
+.grid1x2 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -32,4 +32,8 @@
   border-radius: 10px;
   padding: 5px;
   margin: 5px;
+}
+
+.timer {
+  margin: 20px;
 }
