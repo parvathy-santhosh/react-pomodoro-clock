@@ -18,15 +18,18 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.hr {
+  width: 90vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grid2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.button {
+  border-style: solid;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
 }
