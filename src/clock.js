@@ -16,6 +16,26 @@ function stringify(x) {
 
 function countDown(obj) {
   let newObj = obj;
+  let min = obj.min;
+  let sec = obj.sec;
+  if (sec !== 0){
+    newObj.sec = sec - 1;
+  } else {
+    if (min !== 0){
+      newObj.min = min - 1;
+      newObj.sec = 59;
+    } else {
+      switch (obj.currentLabel){
+        case (SESSION):
+          newObj.currentLabel = BREAK;
+          newObj.min = obj.break;
+          break;
+        case (BREAK):
+          newObj.currentLabel = SESSION;
+          newObj.min = obj.session;
+      }
+    }
+  }
   return newObj;
 }
 
