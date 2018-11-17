@@ -36,6 +36,10 @@ function countDown(obj) {
         case (BREAK):
           newObj.currentLabel = SESSION;
           newObj.min = obj.session;
+          break;
+        default:
+          // pass
+          break;
       }
     }
   }
@@ -67,7 +71,7 @@ class Clock extends Component {
       this.setState({
         break: this.state.break - 1
       });
-      if ((this.state.currentLabel == BREAK) & !(this.state.running)){
+      if ((this.state.currentLabel === BREAK) & !(this.state.running)){
         this.setState({
           min:  this.state.break - 1
         });
@@ -79,7 +83,7 @@ class Clock extends Component {
       this.setState({
         break: this.state.break + 1
       });
-      if ((this.state.currentLabel == BREAK) & !(this.state.running)){
+      if ((this.state.currentLabel === BREAK) & !(this.state.running)){
         this.setState({
           min:  this.state.break + 1
         });
@@ -91,7 +95,7 @@ class Clock extends Component {
       this.setState({
         session: this.state.session - 1
       });
-      if ((this.state.currentLabel == SESSION) & !(this.state.running)){
+      if ((this.state.currentLabel === SESSION) & !(this.state.running)){
         this.setState({
           min:  this.state.session - 1
         });
@@ -103,7 +107,7 @@ class Clock extends Component {
       this.setState({
         session: this.state.session + 1
       });
-      if ((this.state.currentLabel == SESSION) & !(this.state.running)){
+      if ((this.state.currentLabel === SESSION) & !(this.state.running)){
         this.setState({
           min:  this.state.session + 1
         });
