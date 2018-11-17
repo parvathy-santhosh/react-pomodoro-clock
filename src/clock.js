@@ -27,7 +27,9 @@ function countDown(obj) {
       newObj.min = min - 1;
       newObj.sec = 59;
     } else {
-      document.getElementById("beep").play();
+      let audio = document.getElementById('beep');
+      audio.currentTime = 0;
+      audio.play();
       switch (obj.currentLabel){
         case (SESSION):
           newObj.currentLabel = BREAK;
@@ -129,6 +131,9 @@ class Clock extends Component {
       sec: 0,
       running: false
     });
+    let audio = document.getElementById('beep');
+    audio.currentTime = 0;
+    audio.pause();
   }
 
   timed() {
@@ -139,6 +144,10 @@ class Clock extends Component {
 
   componentDidMount() {
     this.timer = setInterval(this.timed, 1000);
+  }
+
+  componentDidUnmount() {
+    clearInterval(this.timer);
   }
 
   render() {
