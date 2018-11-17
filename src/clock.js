@@ -6,6 +6,8 @@ const defaultSession = 25;
 const SESSION = "Session";
 const BREAK = "Break";
 
+let bell = "http://audiosoundclips.com/wp-content/uploads/2012/01/Bicyclebell.mp3";
+
 function stringify(x) {
   if (parseInt(x) < 10){
     return '0' + parseInt(x).toString();
@@ -25,6 +27,7 @@ function countDown(obj) {
       newObj.min = min - 1;
       newObj.sec = 59;
     } else {
+      document.getElementById("beep").play();
       switch (obj.currentLabel){
         case (SESSION):
           newObj.currentLabel = BREAK;
@@ -137,6 +140,7 @@ class Clock extends Component {
   render() {
     return (
       <div>
+        <audio id="beep" src={bell} />
         <div className="grid1x2">
           <div>
             <div id="break-label">Break Length</div>
